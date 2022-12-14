@@ -13,11 +13,11 @@ renderBooks();
 
 const favouriteBooks = [];
 
-const booksLinks = document.querySelectorAll('.book__image');
-
+const booksLinks = document.querySelectorAll('.books-list .book__image');
 function initActions(){
   for(let link of booksLinks){
-    link.addEventListener('dblclick',function(){
+    link.addEventListener('dblclick',function(event){
+      event.preventDefault();
       const linkId = link.getAttribute('data-id');
       if(!favouriteBooks.includes(linkId)){
         favouriteBooks.push(linkId);
