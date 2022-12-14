@@ -11,3 +11,23 @@ function renderBooks(){
 }
 renderBooks();
 
+const favouriteBooks = [];
+
+const booksLinks = document.querySelectorAll('.book__image');
+
+function initActions(){
+  for(let link of booksLinks){
+    link.addEventListener('dblclick',function(){
+      const linkId = link.getAttribute('data-id');
+      if(!favouriteBooks.includes(linkId)){
+        favouriteBooks.push(linkId);
+        link.classList.add('favorite');
+      }else{
+        favouriteBooks.splice(favouriteBooks.indexOf(linkId),1);
+        link.classList.remove('favorite');
+      }
+    })
+  }
+}
+
+initActions();
